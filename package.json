@@ -1,25 +1,48 @@
 {
-	"name": "myedenred-actual",
-	"version": "0.0.5",
-	"description": "Import transactions from your My Edenred accounts into Actual Budget",
-	"main": "cli.js",
-	"bin": {
-		"actualplaid": "cli.js"
-	},
-	"author": "Tiago Rodrigues",
+	"name": "actual-mealcards",
+	"version": "0.1.0",
+	"description": "Import transactions from My Edenred and Coverflex meal cards into Actual Budget.",
+	"author": "Miguel 'aka' Kelter",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/miguel-aka-kelter/actual-mealcards"
+	},
+	"bugs": {
+		"url": "https://github.com/miguel-aka-kelter/actual-mealcards/issues"
+	},
+	"homepage": "https://github.com/miguel-aka-kelter/actual-mealcards#readme",
+	"main": "index.js",
+	"bin": {
+		"mealcards": "index.js"
+	},
+	"scripts": {
+		"start": "node index.js",
+		"cron": "node index-cron.js"
+	},
+	"type": "commonjs",
+	"engines": {
+		"node": ">=14"
+	},
+	"files": [
+		"src",
+		"index.js",
+		"index-cron.js",
+		"README.md",
+		"LICENSE"
+	],
 	"dependencies": {
 		"@actual-app/api": "^25.2.1",
 		"better-opn": "^2.0.0",
+		"chalk": "^5.4.1",
 		"conf": "^7.1.2",
 		"cron-parser": "^4.9.0",
 		"dotenv": "^16.3.1",
+		"jsdom": "^24.0.0",
 		"meow": "^7.0.1",
 		"node-cron": "^3.0.3",
+		"node-fetch": "^2.6.7",
 		"ssl-root-cas": "^1.3.1",
 		"terminal-link": "^3.0.0"
-	},
-	"engines": {
-		"node": ">=10"
 	}
 }

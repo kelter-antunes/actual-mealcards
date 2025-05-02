@@ -1,20 +1,15 @@
 #!/usr/bin/env node
-const meow = require("meow");
-const myedenred = require("./cli.js");
 
-const cli = meow(
-    `
-  Usage
-    $ mealcards <command> <flags>
+// index.js
+const runCli = require('./src/cli/index');
+const logger = require('./src/logger');
 
-  Commands & Options
-    import-myendenred   Sync MyEndenred accounts to Actual Budget
-    import-coverflex    Sync Coverflex accounts to Actual Budget
-    config              Print the location of myedenredactual the config file
-
-  Examples
-    $ mealcards import-myendenred
-`);
-
-myedenred(cli.input[0], cli.flags);
-
+(async () => {
+  try {
+    await runCli();
+  } catch (err) {
+    logger.error(err.message);
+    if (process.env.DEBUG && err.stack) logger.debug(err.stack);
+    process.exit(1);
+  }
+})();
